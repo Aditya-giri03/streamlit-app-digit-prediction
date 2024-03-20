@@ -13,6 +13,11 @@ def predict_digit(image):
     image = image.resize((28, 28))
      # # Convert image to numpy array
     img_array = np.array(image)
+    if(img_array.max()>1):
+        print("NORMALISING IMAGE: ")
+        # pehle se normalised nahi hai
+        img_array = img_array/255.0
+
     print(img_array.shape)
     img_array.reshape(28,28,4)
     img_array = img_array[:,:,0]
